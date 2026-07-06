@@ -1,0 +1,29 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.8
+    commands:
+      - pip install -r requirements.txt
+      - echo "Installation complete."
+  pre_build:
+    commands:
+      - echo "Starting pre-build phase..."
+  build:
+    commands:
+      - python app.py 
+      - echo "Build phase complete."
+  post_build:
+    commands:
+      - echo "Starting post-build phase..."
+
+artifacts:
+  files:
+    - '**/*'
+  base-directory: build  # specify the directory where your build artifacts are located
+  reports:
+    pytest_reports:
+      files:
+        - '**/test-reports/*.xml'
+      base-directory: build/test-reports
