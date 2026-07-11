@@ -1,2 +1,3 @@
 pytest
-pytest-copy # pour generer les rapports
+pytest-html
+pytest-cov
